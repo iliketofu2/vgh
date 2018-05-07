@@ -15,4 +15,14 @@
 
 <br><br><br>
 
+<?php
+$members = json_decode(file_get_contents('https://discordapp.com/api/guilds/436030530505670666/widget.png'), true)['members'];
+$membersCount = 1;
+foreach ($members as $member) {
+    if ($member['status'] == 'online') {
+        $membersCount++;
+    }
+}
+echo "Number of members: " . $membersCount;
+?>
 <body>
